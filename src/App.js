@@ -1,29 +1,20 @@
 import axios from 'axios'
 import './App.css';
-import { QUIZ_DATA } from './Statics/QuizData'
 import { useEffect, useState } from 'react';
 import Home from './Pages/Home'
+import Quiz from './Pages/Quiz'
 
 function App() {
 	const [questions, setQuestions] = useState({})
 	const [email, setEmail] = useState('');
 
-	const getQuestions = async () => {
-		const API = QUIZ_DATA.QUIZ_API + 'amount=' + QUIZ_DATA.NUMBER_OF_QUESTIONS;
-		
-		await axios.get(API)
-			.then((response) => setQuestions(response.data))
-			// .then(() => console.log(questions))
-			.catch((error) => console.log(error))			
-	}
-
-	useEffect(() => {
-		getQuestions();
-	}, [])
-
 	return (
 		<>
-			<Home email={email} setEmail={setEmail} />
+			{/* <Home email={email} setEmail={setEmail} /> */}
+
+			{/* Add condition wherein if there's no email you can't proceed with the questions */}
+			<Quiz email={email} questions={questions} />
+			
 		</>
 	)
 }
