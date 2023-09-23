@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 
 const Question = ({ index, question }) => {
     const [options, setOptions] = useState([]);
+    const [selectedOption, setSelectedOption] = useState('');
+
     const decodeHtml = (html) => {
         var txt = document.createElement("textarea");
         txt.innerHTML = html;
@@ -35,11 +37,21 @@ const Question = ({ index, question }) => {
         makeOptions();
     }, [])
 
-    const storeResult = (event) => {
-        const choice = event.target.value;
-        // console.log(choice);
+    const handleOptionChange = (event) => {
+        setSelectedOption(event.target.value);
+    };
 
+    const handleReset = () => {
+        setSelectedOption('');
+        delete question.choice;
+        console.log(question)
+    };
+
+    const storeResult = (event) => {
+        handleOptionChange(event);
+        const choice = event.target.value;
         question.choice = choice;
+        console.log(question)
     }
 
 
@@ -48,24 +60,33 @@ const Question = ({ index, question }) => {
             <p>Question: {index}</p>
             <h4>{decodeHtml(question.question)}</h4>
 
-
             {
                 options.map(
                     (radio) => {
-                        const { index , option, answer } = radio
+                        const { index, option, answer } = radio
 
                         // Continue tomorrow from here
                         // Do the thing that marks the question as correct or incorrect
                         return (
                             <label>
-                                <input type="radio" value={option} name={question.question} onChange={(event) => storeResult(event)} />
+                                <input
+                                    type="radio"
+                                    value={option}
+                                    name={question.question}
+                                    onChange={(event) => storeResult(event)}
+                                    checked={selectedOption === option}
+                                />
+
                                 {decodeHtml(option)}
                                 <br />
                             </label>
                         )
                     }
                 )
+
             }
+
+            < button onClick={handleReset}>Reset</button >
         </>
     )
 }
