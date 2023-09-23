@@ -27,6 +27,10 @@ const Quiz = ({ email }) => {
         getQuestions();
     }, [])
 
+    const print = () => {
+        console.log(questions);
+    }
+
     return (
         <>
             {
@@ -43,6 +47,8 @@ const Quiz = ({ email }) => {
                                 )
                             )
                         }
+
+                        <button onClick={print}>Submit</button>
                     </div>
                 :
                     <h1>Hang Tight!</h1>
