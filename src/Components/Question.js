@@ -44,14 +44,14 @@ const Question = ({ index, question }) => {
     const handleReset = () => {
         setSelectedOption('');
         delete question.choice;
-        console.log(question)
+        // console.log(question)
     };
 
     const storeResult = (event) => {
         handleOptionChange(event);
         const choice = event.target.value;
         question.choice = choice;
-        console.log(question)
+        // console.log(question)
     }
 
 
