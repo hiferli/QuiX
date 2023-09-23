@@ -24,14 +24,6 @@ const Result = ({ result }) => {
         });
     }, [])
 
-    const makeStatement = (option) => {
-        if (option) {
-            return `You marked: ${<i><b>{option}</b></i>}`
-        } else {
-            return `You didn't mark this question`
-        }
-    }
-
     return (
         <>
             <h1>Results are here!</h1>
@@ -71,7 +63,14 @@ const Result = ({ result }) => {
                             (question) => (
                                 <>
                                     <p>{decodeHtml(question.question)}</p>
-                                    <p>{makeStatement(decodeHtml(question.choice))}, while the correct option was <i><b>{decodeHtml(question.correct_answer)}</b></i></p>
+                                    <p> {
+                                            question.choice === undefined
+                                            ? 
+                                                <span>You marked nothing</span>
+                                            :
+                                                <span>You marked <i><b>{question.choice}</b></i></span>
+                                        }
+                                        , while the correct option was <i><b>{decodeHtml(question.correct_answer)}</b></i></p>
                                     <hr />
                                 </>
                             )
