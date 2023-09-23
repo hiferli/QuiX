@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { QUIZ_DATA } from '../Statics/QuizData';
 
 const Result = ({ result }) => {
+    const [score, setScore] = useState(0);
     const [correctMarked, setCorrectMarked] = useState([]);
     const [incorrectMarked, setIncorrectMarked] = useState([]);
 
@@ -10,6 +12,22 @@ const Result = ({ result }) => {
         return txt.value;
     }
 
+    const correctMarks = (difficulty) => {
+        // If need special scoring methods, use this, else comment this out till the second last line
+
+        if (difficulty === 'easy'){
+            return QUIZ_DATA.EASY_QUESTION_SCORE;
+        } else if (difficulty === 'medium'){
+            return QUIZ_DATA.MEDIUM_QUESTION_SCORE;
+        } else if(difficulty === 'hard'){
+            return QUIZ_DATA.HARD_QUESTION_SCORE;
+        }
+
+        // till here
+
+        return QUIZ_DATA.DEFAULT_SCORE;
+    }
+
     useEffect(() => {
         console.log(result.results);
 
@@ -17,9 +35,11 @@ const Result = ({ result }) => {
             if (submission.correct_answer === submission.choice) {
                 // console.log("correct")
                 setCorrectMarked(correctMarked => [...correctMarked, submission]);
+                setScore(score => score + correctMarks(submission.difficulty));
             } else {
                 // console.log("incorrectcorrect")
                 setIncorrectMarked(incorrectMarked => [...incorrectMarked, submission]);
+                setScore(score => score - QUIZ_DATA.INCORRECT_SCORE);
             }
         });
     }, [])
@@ -27,6 +47,7 @@ const Result = ({ result }) => {
     return (
         <>
             <h1>Results are here!</h1>
+            <h1>Your Score is: {score}</h1>
             <h2>{correctMarked.length} questions were scored correct, while {incorrectMarked.length} questions were wrong</h2>
             <br />
 
