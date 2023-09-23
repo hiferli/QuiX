@@ -4,6 +4,12 @@ const Result = ({ result }) => {
     const [correctMarked, setCorrectMarked] = useState([]);
     const [incorrectMarked, setIncorrectMarked] = useState([]);
 
+    const decodeHtml = (html) => {
+        var txt = document.createElement("textarea");
+        txt.innerHTML = html;
+        return txt.value;
+    }
+
     useEffect(() => {
         console.log(result.results);
 
@@ -42,7 +48,7 @@ const Result = ({ result }) => {
                         correctMarked.map(
                             (question) => (
                                 <>
-                                    <p>{question.question}</p>
+                                    <p>{decodeHtml(question.question)}</p>
                                     <hr />
                                 </>
                             )
@@ -64,8 +70,8 @@ const Result = ({ result }) => {
                         incorrectMarked.map(
                             (question) => (
                                 <>
-                                    <p>{question.question}</p>
-                                    <p>{makeStatement(question.choice)}, while the correct option was <i><b>{question.correct_answer}</b></i></p>
+                                    <p>{decodeHtml(question.question)}</p>
+                                    <p>{makeStatement(decodeHtml(question.choice))}, while the correct option was <i><b>{decodeHtml(question.correct_answer)}</b></i></p>
                                     <hr />
                                 </>
                             )

@@ -59,7 +59,7 @@ const Question = ({ index, question }) => {
                         return (
                             <label>
                                 <input type="radio" value={option} name={question.question} onChange={(event) => storeResult(event)} />
-                                {option}
+                                {decodeHtml(option)}
                                 <br />
                             </label>
                         )
