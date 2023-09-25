@@ -1,7 +1,11 @@
 export const QUIZ_DATA = {
     QUIZ_API: 'https://opentdb.com/api.php?',
     NUMBER_OF_QUESTIONS: 15,
-    QUIZ_TIME: 30,
+    QUIZ_TIME: {
+        // Change to 30:00
+        MINUTES: 0,
+        SECONDS: 5 
+    },
 
     DEFAULT_SCORE: 1,
     EASY_QUESTION_SCORE: 1,

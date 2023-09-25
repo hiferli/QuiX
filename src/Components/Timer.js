@@ -1,16 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 
-const Timer = ({initialMinute , initialSeconds}) => {
-    const [minutes, setMinutes] = useState(initialMinute);
-    const [seconds, setSeconds] = useState(initialSeconds);
+const Timer = ({ minutes , setMinutes , seconds , setSeconds }) => {
+    
     useEffect(() => {
-        console.log(initialMinute)
-        console.log(initialSeconds)
-        console.log("Start")
+        // console.log(initialMinute)
+        // console.log(initialSeconds)
+        // console.log("Start")
         let myInterval = setInterval(() => {
-            console.log(minutes);
-            console.log(seconds)
+            // console.log(minutes);
+            // console.log(seconds)
             if (seconds > 0) {
                 setSeconds(seconds - 1);
             }
