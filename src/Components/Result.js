@@ -87,11 +87,11 @@ const Result = ({ result }) => {
                                     <p> {
                                             question.choice === undefined
                                             ? 
-                                                <span>You marked nothing</span>
+                                                <span style={{color: QUIZ_DATA.COLOR.INCORRECT}}>You marked nothing</span>
                                             :
-                                                <span>You marked <i><b>{question.choice}</b></i></span>
+                                            <span>You marked <span style={{color: QUIZ_DATA.COLOR.INCORRECT}}><i><b>{question.choice}</b></i></span></span>
                                         }
-                                        , while the correct option was <i><b>{decodeHtml(question.correct_answer)}</b></i></p>
+                                        , while the correct option was <span style={{color: QUIZ_DATA.COLOR.CORRECT}}><i><b>{decodeHtml(question.correct_answer)}</b></i></span></p>
                                     <hr />
                                 </>
                             )

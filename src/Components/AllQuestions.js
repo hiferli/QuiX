@@ -1,10 +1,12 @@
 import React from 'react'
 import Question from './Question'
+import Panel from './Panel'
 
 const AllQuestions = ({ questions }) => {
     return (
         <div>
             <h1>All the best!</h1>
+            <Panel questions={questions.results} />
 
             {
                 // console.log(questions)
