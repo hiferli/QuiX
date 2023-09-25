@@ -4,6 +4,7 @@ import Question from '../Components/Question'
 import { QUIZ_DATA } from '../Statics/QuizData'
 import AllQuestions from '../Components/AllQuestions'
 import Result from '../Components/Result'
+import Timer from '../Components/Timer'
 
 
 const Quiz = ({ email }) => {
@@ -40,9 +41,10 @@ const Quiz = ({ email }) => {
             {
                 !isLoading
                 ?
-                    !isComplete 
+                    !isComplete
                     ?
                         <div>
+                            {/* <Timer initialMinute={0} initialSeconds={5} /> */}
                             <AllQuestions questions={questions} />
                             <button onClick={print}>Submit</button>
                         </div>
