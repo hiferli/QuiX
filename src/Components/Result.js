@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { QUIZ_DATA } from '../Statics/QuizData';
+import { useNavigate } from "react-router-dom";
 
 const Result = ({ result }) => {
     const [score, setScore] = useState(0);
@@ -43,6 +44,8 @@ const Result = ({ result }) => {
             }
         });
     }, [])
+
+    let navigate = useNavigate(); 
 
     return (
         <>
@@ -103,6 +106,8 @@ const Result = ({ result }) => {
                         </>
                 }
             </div>
+            <br />
+            <button onClick={() => navigate('/')}>Retake Test</button>
         </>
     )
 }
