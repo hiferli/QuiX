@@ -28,6 +28,8 @@ const Quiz = ({ email }) => {
             // console.log(questions.data)
         } catch (error) {
             console.log(error);
+            alert("Error getting questions! Please try again");
+            navigate('/');
         } finally {
             setIsLoading(false);
         }
@@ -46,7 +48,7 @@ const Quiz = ({ email }) => {
             alert("Please enter your email to get started!");
             navigate('/');
         }
-        
+
         getQuestions();
     }, [])
     
