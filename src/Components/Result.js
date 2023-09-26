@@ -30,7 +30,7 @@ const Result = ({ result }) => {
     }
 
     useEffect(() => {
-        console.log(result.results);
+        // console.log(result.results);
 
         result.results.forEach(submission => {
             if (submission.correct_answer === submission.choice) {
