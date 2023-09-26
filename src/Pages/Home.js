@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 const Home = ({email , setEmail}) => {
+    let navigate = useNavigate(); 
+
     const isEmailValid = () => {
         const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -18,6 +21,8 @@ const Home = ({email , setEmail}) => {
         if (!isEmailValid()) {
             alert("Please enter a valid email address");
         }
+        
+        navigate('/quiz')  
     }
 
     return (

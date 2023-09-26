@@ -5,6 +5,7 @@ import { QUIZ_DATA } from '../Statics/QuizData'
 import AllQuestions from '../Components/AllQuestions'
 import Result from '../Components/Result'
 import Timer from '../Components/Timer'
+import { useNavigate } from "react-router-dom";
 
 
 const Quiz = ({ email }) => {
@@ -14,6 +15,8 @@ const Quiz = ({ email }) => {
 
     const [minutes, setMinutes] = useState(QUIZ_DATA.QUIZ_TIME.MINUTES);
     const [seconds, setSeconds] = useState(QUIZ_DATA.QUIZ_TIME.SECONDS);
+
+    let navigate = useNavigate(); 
 
     const getQuestions = async () => {
         const API = QUIZ_DATA.QUIZ_API + 'amount=' + QUIZ_DATA.NUMBER_OF_QUESTIONS;
@@ -37,8 +40,13 @@ const Quiz = ({ email }) => {
     }
 
     useLayoutEffect(() => {
-        console.log(minutes);
-        console.log(seconds)
+        // console.log(minutes);
+        // console.log(seconds)
+        if(!email){
+            alert("Please enter your email to get started!");
+            navigate('/');
+        }
+        
         getQuestions();
     }, [])
     
