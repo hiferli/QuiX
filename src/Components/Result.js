@@ -49,13 +49,13 @@ const Result = ({ result }) => {
 
     return (
         <>
-            <h1>Results are here!</h1>
-            <h1>Your Score is: {score}</h1>
-            <h2>{correctMarked.length} questions were scored correct, while {incorrectMarked.length} questions were wrong</h2>
+            <h1 className='text-5xl font-bold m-5'>Results are here!</h1>
+            <h1 className='text-7xl'>Your Score is: <span className='text-emerald-800 bg-transparent'>{score}</span></h1>
+            <h2 className='text-2xl'><span className='text-[#6BAA75]'><b>{correctMarked.length}</b></span> questions were scored correct, while <span className='text-[#D64045]'><b>{incorrectMarked.length}</b></span> questions were wrong</h2>
             <br />
 
-            <h1>Analysis</h1>
-            <h2>Correctly Marked Questions</h2>
+            <h1 className='text-4xl'>Analysis</h1>
+            <h2 className='m-2 text-3xl text-[#6BAA75] underline'>Correctly Marked Questions</h2>
             
             <div className="correct">
                 {
@@ -71,13 +71,15 @@ const Result = ({ result }) => {
                         )
                         :
                         <>
-                            <p>None 🥲</p>
+                            <p className='text-2xl'>None 🥲</p>
                             
                         </>
                 }
             </div>
 
-            <h2>Incorrectly Marked Questions</h2>
+            <br /><br />
+
+            <h2 className='text-3xl text-[#D64045] underline'>Incorrectly Marked Questions</h2>
             
             <div className="incorrect ">
                 {
@@ -101,13 +103,13 @@ const Result = ({ result }) => {
                         )
                         :
                         <>
-                            <p>None 😎</p>
+                            <p className='text-2xl'>None 😎</p>
                             
                         </>
                 }
             </div>
             <br />
-            <button onClick={() => navigate('/')}>Retake Test</button>
+            <button className='bg-[#4D6B73] text-[#FFFEF2] p-2 rounded-md font-semibold text-xl border-2 border-black m-2' onClick={() => navigate('/')}>Retake Test</button>
         </>
     )
 }
