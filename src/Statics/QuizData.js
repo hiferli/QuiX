@@ -4,7 +4,7 @@ export const QUIZ_DATA = {
 
     QUIZ_TIME: {
         // Change to 30:00
-        MINUTES: 0,
+        MINUTES: 10000000,
         SECONDS: 5 
     },
 

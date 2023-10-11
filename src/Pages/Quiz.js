@@ -5,6 +5,7 @@ import AllQuestions from '../Components/AllQuestions'
 import Result from '../Components/Result'
 import Timer from '../Components/Timer'
 import { useNavigate } from "react-router-dom";
+import Duck from '../Statics/Duck.gif'
 
 
 const Quiz = ({ email }) => {
@@ -15,7 +16,7 @@ const Quiz = ({ email }) => {
     const [minutes, setMinutes] = useState(QUIZ_DATA.QUIZ_TIME.MINUTES);
     const [seconds, setSeconds] = useState(QUIZ_DATA.QUIZ_TIME.SECONDS);
 
-    let navigate = useNavigate(); 
+    let navigate = useNavigate();
 
     const getQuestions = async () => {
         const API = QUIZ_DATA.QUIZ_API + 'amount=' + QUIZ_DATA.NUMBER_OF_QUESTIONS;
@@ -35,7 +36,7 @@ const Quiz = ({ email }) => {
     }
 
     const endQuiz = () => {
-        if(minutes === 0 && seconds === 0){
+        if (minutes === 0 && seconds === 0) {
             setIsComplete(true);
         }
     }
@@ -43,18 +44,18 @@ const Quiz = ({ email }) => {
     useLayoutEffect(() => {
         // console.log(minutes);
         // console.log(seconds)
-        if(!email){
+        if (!email) {
             alert("Please enter your email to get started!");
             navigate('/');
         }
 
         getQuestions();
     }, [])
-    
+
     useEffect(() => {
         endQuiz();
-    }, [minutes , seconds])
-    
+    }, [minutes, seconds])
+
 
     const print = () => {
         console.log(questions);
@@ -65,23 +66,28 @@ const Quiz = ({ email }) => {
         <>
             {
                 !isLoading
-                ?
-                    !isComplete
                     ?
+                    !isComplete
+                        ?
                         <div>
                             <Timer minutes={minutes} setMinutes={setMinutes} seconds={seconds} setSeconds={setSeconds} />
                             <AllQuestions questions={questions} />
                             <button onClick={print}>Submit</button>
                         </div>
 
-                    :
+                        :
                         <Result result={questions} />
-                :
+                    :
 
-                <h1>Hang Tight!</h1>
+                    <div className="loading h-screen flex items-center justify-center inline-block">
+                        <img width={100} height={100} src={Duck} alt="Loading" />
+                        <h1 className='font-serif text-2xl'>Hang Tight!</h1>
+                    </div>
             }
         </>
     )
 }
 
 export default Quiz
+
+    // < div style = "padding-top:125.326%;position:relative;" > <iframe src="https://gifer.com/embed/XOsX" width="100%" height="100%" style='position:absolute;top:0;left:0;' frameBorder="0" allowFullScreen></iframe></div > <p><a href="https://gifer.com">via GIFER</a></p>
