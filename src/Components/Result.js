@@ -50,12 +50,12 @@ const Result = ({ result }) => {
     return (
         <>
             <h1 className='text-5xl font-bold m-5'>Results are here!</h1>
-            <h1 className='text-7xl'>Your Score is: <span className='text-emerald-800 bg-transparent'>{score}</span></h1>
-            <h2 className='text-2xl'><span className='text-[#6BAA75]'><b>{correctMarked.length}</b></span> questions were scored correct, while <span className='text-[#D64045]'><b>{incorrectMarked.length}</b></span> questions were wrong</h2>
+            <h1 className='text-7xl'>Your Score is: <span className='text-[#4D6B73] bg-transparent'>{score}</span></h1>
+            <h2 className='text-2xl inline-block m-3'><span className='text-[#6BAA75]'><b>{correctMarked.length}</b></span> questions were scored correct, while <span className='text-[#D64045]'><b>{incorrectMarked.length}</b></span> questions were wrong</h2>
             <br />
 
             <h1 className='text-4xl'>Analysis</h1>
-            <h2 className='m-2 text-3xl text-[#6BAA75] underline'>Correctly Marked Questions</h2>
+            <h2 className='m-2 text-3xl text-[#6BAA75] underline'>Corsssrectly Marked Questions</h2>
             
             <div className="correct">
                 {

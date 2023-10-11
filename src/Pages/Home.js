@@ -34,9 +34,9 @@ const Home = ({email , setEmail}) => {
             <h3 className='text-xl '>Challenge your ability</h3>
 
             <br /><br />
-            <div className="rules m-2">
+            <div className="rules m-4">
                 <h2 className='text-4xl font-black text-[#D64045] text-transform: uppercase'>Rules</h2>
-                <ol className='list-decimal'>
+                <ol>
                     <li>You are required to enter your email address for starting the quiz. This email would be used to email your result to you as well as to the quiz creater</li>
                     <li>The quiz has total <span className='font-bold'>{QUIZ_DATA.NUMBER_OF_QUESTIONS}</span> questions waiting for you. You need to solve all of them (Atleast try to) solve all of them in a span of <span className='font-bold'>{QUIZ_DATA.QUIZ_TIME.MINUTES} minutes</span>.</li>
                     <li>You can use the <span className='font-bold text-[#6BAA75]'>Submit</span> button to submit the test. Alternatively, <span className='font-bold text-[#D64045]'>the test would be auto-submitted once the time is over</span></li>
