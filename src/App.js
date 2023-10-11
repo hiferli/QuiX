@@ -1,6 +1,5 @@
-import axios from 'axios'
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Home from './Pages/Home'
 import Quiz from './Pages/Quiz'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';

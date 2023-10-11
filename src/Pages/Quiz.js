@@ -1,6 +1,5 @@
 import React, { useState, useLayoutEffect, useEffect } from 'react'
 import axios from 'axios'
-import Question from '../Components/Question'
 import { QUIZ_DATA } from '../Statics/QuizData'
 import AllQuestions from '../Components/AllQuestions'
 import Result from '../Components/Result'

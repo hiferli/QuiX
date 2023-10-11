@@ -63,7 +63,7 @@ const Question = ({ index, question }) => {
             {
                 options.map(
                     (radio) => {
-                        const { index, option, answer } = radio
+                        const { option } = radio
 
                         // Continue tomorrow from here
                         // Do the thing that marks the question as correct or incorrect
