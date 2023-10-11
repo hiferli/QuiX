@@ -56,53 +56,53 @@ const Result = ({ result }) => {
 
             <h1>Analysis</h1>
             <h2>Correctly Marked Questions</h2>
-            <hr />
+            
             <div className="correct">
                 {
                     correctMarked.length
                         ?
                         correctMarked.map(
                             (question) => (
-                                <>
-                                    <p>{decodeHtml(question.question)}</p>
-                                    <hr />
-                                </>
+                                <div className='border-2 border-[#4D6B73] rounded-md m-[25px]  p-3'>
+                                    <p className='font-medium text-3xl m-2'>{decodeHtml(question.question)}</p>
+                                    <p className='text-2xl'>You marked <span className='text-[#6BAA75]'><i><b>{decodeHtml(question.correct_answer)}</b></i></span></p>
+                                </div>
                             )
                         )
                         :
                         <>
                             <p>None 🥲</p>
-                            <hr />
+                            
                         </>
                 }
             </div>
 
             <h2>Incorrectly Marked Questions</h2>
-            <hr />
-            <div className="incorrect">
+            
+            <div className="incorrect ">
                 {
                     incorrectMarked
                         ?
                         incorrectMarked.map(
                             (question) => (
-                                <>
-                                    <p>{decodeHtml(question.question)}</p>
-                                    <p> {
+                                <div className='border-2 border-[#4D6B73] rounded-md m-[25px]  p-3'>
+                                    <p className='font-medium text-3xl m-2'>{decodeHtml(question.question)}</p>
+                                    <p className='text-2xl'> {
                                             question.choice === undefined
                                             ? 
-                                                <span style={{color: QUIZ_DATA.COLOR.INCORRECT}}>You marked nothing</span>
+                                                <span className='text-[#D64045]'>You marked nothing</span>
                                             :
-                                            <span>You marked <span style={{color: QUIZ_DATA.COLOR.INCORRECT}}><i><b>{question.choice}</b></i></span></span>
+                                            <span>You marked <span className='text-[#D64045]'><i><b>{question.choice}</b></i></span></span>
                                         }
-                                        , while the correct option was <span style={{color: QUIZ_DATA.COLOR.CORRECT}}><i><b>{decodeHtml(question.correct_answer)}</b></i></span></p>
-                                    <hr />
-                                </>
+                                        , while the correct option was <span className='text-[#6BAA75]'><i><b>{decodeHtml(question.correct_answer)}</b></i></span></p>
+                                    
+                                </div>
                             )
                         )
                         :
                         <>
                             <p>None 😎</p>
-                            <hr />
+                            
                         </>
                 }
             </div>
