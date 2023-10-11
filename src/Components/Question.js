@@ -56,9 +56,9 @@ const Question = ({ index, question }) => {
 
 
     return (
-        <>
-            <p>Question: {index}</p>
-            <h4>{decodeHtml(question.question)}</h4>
+        <div className='border-2 border-[#4D6B73] rounded-md m-[25px]  p-3'>
+            <p className='text-xl text-left italic underline underline-offset-2'>Question: {index}</p>
+            <h4 className='font-medium text-3xl m-2'>{decodeHtml(question.question)}</h4>
 
             {
                 options.map(
@@ -68,7 +68,7 @@ const Question = ({ index, question }) => {
                         // Continue tomorrow from here
                         // Do the thing that marks the question as correct or incorrect
                         return (
-                            <label>
+                            <label className='text-2xl'>
                                 <input
                                     type="radio"
                                     value={option}
@@ -86,8 +86,8 @@ const Question = ({ index, question }) => {
 
             }
 
-            < button onClick={handleReset}>Reset</button >
-        </>
+            < button className='bg-[#4D6B73] text-[#FFFEF2] px-2 rounded-md font-semibold border border-black m-1' onClick={handleReset}>Reset</button >
+        </div>
     )
 }
 

@@ -15,7 +15,7 @@ const Panel = ({ questions, setSelected }) => {
                         <span className={`text-[#FFFEF2] border w-9 text-center rounded-md inline-block m-1 p-2 font-bold ${question.choice ? `bg-[#6BAA75]` : `bg-[#D64045]`}`}  onClick={() => setSelected(index)} 
                         // style={{ background: question.choice ? QUIZ_DATA.COLOR.MARKED : QUIZ_DATA.COLOR.UNMARKED }}
                         >
-                            {index}
+                            {index + 1}
                         </span>
                     )
                 )
