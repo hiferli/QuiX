@@ -28,10 +28,10 @@ const Timer = ({ minutes , setMinutes , seconds , setSeconds }) => {
     });
 
     return (
-        <div>
+        <div className='inline-block m-2 fixed bottom-0 lg:right-0 md:right-0 sm:opacity-95 opacity-25 hover:opacity-50'>
             {minutes === 0 && seconds === 0
                 ? <h1>Timeup</h1>
-                : <h1> {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+                : <h1 className='bg-[#4D6B73] text-[#FFFEF2] p-2 rounded-md font-semibold text-xl border-2 border-black'>⏰ {minutes} Minutes {seconds < 10 ? `0${seconds}` : seconds} Seconds</h1>
             }
         </div>
     )
