@@ -72,7 +72,7 @@ const Quiz = ({ email }) => {
                         <div>
                             <Timer minutes={minutes} setMinutes={setMinutes} seconds={seconds} setSeconds={setSeconds} />
                             <AllQuestions questions={questions} />
-                            <button onClick={print}>Submit</button>
+                            <button className='bg-[#4D6B73] text-[#FFFEF2] fixed bottom-0 left-0 p-2 rounded-md font-semibold text-xl border-2 border-black m-2' onClick={print}>Submit</button>
                         </div>
 
                         :
