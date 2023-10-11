@@ -15,8 +15,11 @@ const AllQuestions = ({ questions }) => {
 
     return (
         <div>
-            <h1>All the best!</h1>
-            <Panel id={0} questions={questions.results} setSelected={setSelected} />
+            <div className='sticky top-0 z-999'>
+                <Panel id={0} questions={questions.results} setSelected={setSelected} />
+            </div>
+
+            <div>
 
             {
                 // console.log(questions)
@@ -27,8 +30,10 @@ const AllQuestions = ({ questions }) => {
                             <Question key={index} index={index + 1} question={question} />
                         </div>
                     )
-                )
-            }
+                    )
+                }
+
+            </div>
 
         </div>
     )
