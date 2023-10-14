@@ -5,7 +5,7 @@ export const QUIZ_DATA = {
     QUIZ_TIME: {
         // Change to 30:00
         MINUTES: 30,
-        SECONDS: 5 
+        SECONDS: 5,
     },
 
     DEFAULT_SCORE: 1,
@@ -21,6 +21,7 @@ export const QUIZ_DATA = {
         TRIED: 'orange',
 
         CORRECT: 'green',
-        INCORRECT: 'red'
-    }
-}
+        INCORRECT: 'red',
+    },
+};
+
