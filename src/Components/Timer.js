@@ -1,40 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 
-const Timer = ({ minutes , setMinutes , seconds , setSeconds }) => {
-    
+const Timer = ({ initalTimeAmount, callBack }) => {
+    const [timeAmount, setTimeAmount] = useState(initalTimeAmount);
+    const minutes = Math.floor(timeAmount / 60);
+    const seconds = timeAmount % 60;
     useEffect(() => {
-        // console.log(initialMinute)
-        // console.log(initialSeconds)
-        // console.log("Start")
-        let myInterval = setInterval(() => {
-            // console.log(minutes);
-            // console.log(seconds)
-            if (seconds > 0) {
-                setSeconds(seconds - 1);
-            }
-            if (seconds === 0) {
-                if (minutes === 0) {
-                    clearInterval(myInterval)
-                } else {
-                    setMinutes(minutes - 1);
-                    setSeconds(59);
-                }
-            }
-        }, 1000)
-        return () => {
-            clearInterval(myInterval);
-        };
-    });
+        setTimeout(() => setTimeAmount((prev) => prev - 1), 1000);
+        // Here, callback means the function that will end the quiz when the time is over
+        // The callback need the parameter timeAmount for a silly joke in the result screen
+        return callBack(timeAmount);
+    }, [timeAmount]);
 
     return (
-        <div className='inline-block m-2 fixed bottom-0 lg:right-0 md:right-0 sm:opacity-95 opacity-25 hover:opacity-50'>
-            {minutes === 0 && seconds === 0
-                ? <h1>Timeup</h1>
-                : <h1 className='bg-[#4D6B73] text-[#FFFEF2] p-2 rounded-md font-semibold text-xl border-2 border-black'>⏰ {minutes} Minutes {seconds < 10 ? `0${seconds}` : seconds} Seconds</h1>
-            }
+        <div className="inline-block m-2 fixed bottom-0 lg:right-0 md:right-0 sm:opacity-95 opacity-25 hover:opacity-50">
+            {minutes === 0 && seconds === 0 ? (
+                <h2>Timeup</h2>
+            ) : (
+                <span className="bg-[#4D6B73] text-[#FFFEF2] p-2 rounded-md font-semibold text-xl border-2 border-black flex ">
+                    <span className="flex gap-1 bg-[#4D6B73]">
+                        ⏰
+                        {minutes > 0 && (
+                            <h2 className="bg-[#4D6B73]">
+                                {minutes + ' Minutes'}
+                            </h2>
+                        )}
+                        {seconds > 0 && (
+                            <h2 className="bg-[#4D6B73]">
+                                {seconds.toString().padStart(2, 0) + ' seconds'}
+                            </h2>
+                        )}
+                    </span>
+                    <span className="flex"></span>
+                </span>
+            )}
         </div>
-    )
-}
+    );
+};
 
 export default Timer;
